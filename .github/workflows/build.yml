@@ -11,5 +11,12 @@ jobs:
         uses: numworks/setup-arm-toolchain@latest
       - name: Run make build
         run: make build
+
+      - name: Upload nwa artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: block-blast-nwa
+          path: output/app.nwa
+
       - name: Run make check
         run: make check
