@@ -22,12 +22,16 @@
 
 /* ---------- Métadonnées de l'application ----------
  * Si le Makefile de votre modèle définit déjà eadk_app_name /
- * eadk_app_api_level ailleurs (vous aurez alors une erreur de
+ * eadk_api_level ailleurs (vous aurez alors une erreur de
  * l'éditeur de liens du type "multiple definition of eadk_app_name"),
  * supprimez simplement ces deux lignes : elles ne sont utiles que si
- * rien ne les définit déjà dans le projet cloné. */
+ * rien ne les définit déjà dans le projet cloné.
+ * Important : le nom de la variable de niveau d'API doit être
+ * exactement "eadk_api_level" (et non "eadk_app_api_level") car
+ * nwlink cherche une section .rodata.eadk_api_level générée
+ * automatiquement à partir du nom de la variable (-fdata-sections). */
 const char eadk_app_name[] = "Block Blast";
-const uint32_t eadk_app_api_level = 0;
+const uint32_t eadk_api_level = 0;
 
 /* ---------- Configuration de la grille ---------- */
 #define GRID_SIZE   8
